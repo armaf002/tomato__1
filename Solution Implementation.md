@@ -31,9 +31,9 @@ The following technologies are being used for developing the prototype:
 
 ## Challenges Faced
 
-1. **Deployment Issues**: Initially, faced challenges while deploying the application to Azure Web App due to runtime dependencies and configuration issues.
+1. **Communication**: Lack of effective communication among team members led to delays during the development process.
 
-2. **Communication**: Lack of effective communication among team members led to delays and misunderstandings during the development process.
+2. **Deployment Issues**: Faced challenges while deploying the application to Azure Web App due to runtime dependencies and configuration issues. The team had limited experience with Azure deployment, resulting in uncertainty regarding the setup process and troubleshooting steps.
 
 ## Solutions Implemented
 
