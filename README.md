@@ -1,6 +1,7 @@
+## Team Name
+
 ### Team Matrix
 
-#### Team Lead: Ridwan Abdurahman
 
 ## Project Description
 
