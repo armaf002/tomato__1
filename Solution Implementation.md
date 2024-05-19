@@ -1,32 +1,56 @@
-# Prototype
+# Solution Implementation
 
 ## Overview
-This document outlines the prototype developed for the Tomato Disease Classifier App. The prototype serves as a proof of concept, demonstrating the core functionalities and user interface of the application.
 
-## Prototype Features
-The prototype includes the following key features:
+This document describes the prototype implementation of the Tomato Disease Classifier App, detailing the development process, decisions made, challenges faced, and solutions implemented.
 
-1. **Image Upload Interface:**
-   - Users can upload images of tomato plants directly from their devices.
+## Development Environment
 
-2. **Disease Classification:**
-   - The uploaded images are processed using the custom vision model to classify them into different disease categories.
+The prototype is being developed using GitHub Codespaces, a cloud-based development environment that provides a fully configured Visual Studio Code environment within the browser. This enables seamless collaboration among team members and eliminates the need for individual setup.
 
-3. **Real-Time Results:**
-   - Users receive instant feedback on the uploaded images, including the identified disease and relevant information.
+## Technology Stack
 
-4. **User-Friendly Design:**
-   - The interface is designed to be intuitive and easy to use, with clear instructions for image upload and result display.
+The following technologies are being used for developing the prototype:
 
-## Implementation Details
-The prototype is implemented as a web application using HTML, CSS, and JavaScript. The frontend interacts with the custom vision model deployed on Azure, which performs the image classification.
+- **Flask**: Python web framework for building the backend of the application.
+- **HTML/CSS**: For designing the user interface of the web application.
+- **Azure Custom Vision**: Used for training and deploying the machine learning model for disease classification.
+- **Azure Web App**: Chosen as the deployment platform for hosting the web application.
 
-## Screenshots
-[Include screenshots or wireframes of the prototype here]
+## Development Process
+
+1. **Setting Up Environment**: The development environment was set up using GitHub Codespaces, and necessary dependencies were installed.
+
+2. **Model Training**: The custom vision model was trained using Azure Custom Vision service. The dataset was uploaded, and the model was trained to classify tomato diseases.
+
+3. **Web App Development**: Flask framework was used to develop the backend of the web application. HTML and CSS were used for designing the frontend interface.
+
+4. **Integration**: The trained custom vision model was integrated into the Flask backend to enable disease classification based on uploaded images.
+
+5. **Testing**: The prototype was thoroughly tested to ensure functionality and accuracy. Unit tests were performed to validate different components of the application.
+
+## Challenges Faced
+
+1. **Deployment Issues**: Initially, faced challenges while deploying the application to Azure Web App due to runtime dependencies and configuration issues.
+
+2. **Communication**: Lack of effective communication among team members led to delays and misunderstandings during the development process.
+
+## Solutions Implemented
+
+1. **Research and Documentation**: Extensive research and documentation were done to understand the deployment process and resolve issues effectively.
+
+2. **Improved Communication**: Regular team meetings and communication channels were established to ensure effective collaboration and problem-solving.
 
 ## Next Steps
-The prototype will undergo user testing and feedback collection to identify areas for improvement and refinement. Based on the feedback received, further enhancements and features will be implemented in the final version of the Tomato Disease Classifier App.
+
+1. **Refinement**: Continuously refine the application based on user feedback and testing results to improve accuracy and user experience.
+
+2. **Scalability**: Explore options for scaling the application to handle larger volumes of data and users.
+
+3. **Maintenance**: Implement regular maintenance procedures to keep the application up-to-date and secure.
+
+4. **Feature Enhancements**: Add additional features to enhance the functionality of the application, such as support for more disease categories and predictive analytics.
 
 ## Conclusion
-The prototype provides a glimpse into the functionality and user experience of the Tomato Disease Classifier App. It lays the foundation for the development of the full-fledged application, ensuring that it meets the needs and expectations of its users.
 
+The prototype implementation of the Tomato Disease Classifier App represents a significant step towards addressing the challenges faced by farmers in disease detection and management. By leveraging machine learning and web technologies, the application aims to provide an efficient and user-friendly solution for early disease detection in tomato crops. Continued refinement and development will ensure the application meets the needs of its users and contributes to improving agricultural practices.
