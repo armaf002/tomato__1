@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tomato Disease Classifier</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Tomato Disease Classifier</h1>
+    <form action="/predict" method="post" enctype="multipart/form-data">
+      <div>
+        <label for="file">Upload an image:</label>
+        <input type="file" name="file" accept="image/*">
+      </div>
+      <div>
+        <label for="url">Or enter an image URL:</label>
+        <input type="text" name="url">
+      </div>
+      <button type="submit">Upload and Predict</button>
+    </form>
+    {% if diagnosis %}
+    <p>Diagnosis: {{ diagnosis }}</p>
+    {% endif %}
+  </div>
+</body>
+</html>
+
