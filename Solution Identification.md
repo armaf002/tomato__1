@@ -10,9 +10,7 @@ Tomato plants are vulnerable to a variety of diseases that can severely impact y
 
 ## Solution Components
 
-The proposed solution comprises several key components, each contributing to the overall functionality and effectiveness of the Tomato Disease Classifier App:
-
-### 1. **Custom Vision Model**
+### 1. Custom Vision Model
 
 **Description**:
 A machine learning model trained using the Custom Vision service by Azure, designed to classify images of tomato plants into different disease categories.
@@ -22,7 +20,7 @@ A machine learning model trained using the Custom Vision service by Azure, desig
 - **Scalability**: Capable of handling large volumes of image data for robust performance.
 - **Updatable**: The model can be regularly updated with new data to improve accuracy over time.
 
-### 2. **Dataset**
+### 2. Dataset
 
 **Description**:
 The dataset used for training the model includes images of tomato plants affected by various diseases. The dataset is sourced from the Crop Pest and Disease Detection Dataset available on [Mendeley Data](https://data.mendeley.com/datasets/bwh3zbpkpv/1).
@@ -37,7 +35,7 @@ The dataset used for training the model includes images of tomato plants affecte
 **Training Subset**:
 1,000 images from each disease category were selected for training, making a total of 6,000 images. This subset was chosen due to the maximum data limit imposed by the Custom Vision service.
 
-### 3. **Web App or Power App**
+### 3. Web App or Power App
 
 **Description**:
 The user interface through which users will interact with the classifier. Depending on the deployment method, it can be a web application or a Power App.
@@ -47,16 +45,15 @@ The user interface through which users will interact with the classifier. Depend
 - **Real-Time Results**: The app provides instant feedback on the uploaded images, identifying the disease and suggesting possible interventions.
 - **User-Friendly Design**: The interface is designed to be intuitive and easy to use, even for users with minimal technical expertise.
 
-### 4. **Hosting and Deployment**
+### 4. Hosting and Deployment
 
 **Description**:
 The infrastructure required to host and deploy the application, ensuring it is accessible to users.
 
-**Options**:
-- **Web App**: Hosted on Azure App Service, providing scalability and reliability.
-- **Power App**: Deployed through the Power Platform, offering seamless integration with other Microsoft services.
+**Deployment**:
+We chose to deploy the Tomato Disease Classifier App using Azure Web App because it offers scalability, reliability, and seamless integration with other Azure services. Additionally, Azure Web App provides a managed environment for hosting web applications, which simplifies deployment and maintenance tasks. By leveraging Azure Web App, We can ensure the availability and performance of the application while focusing on enhancing its features and functionality.
 
-### 5. **Continuous Improvement and Maintenance**
+### 5. Continuous Improvement and Maintenance
 
 **Description**:
 Ongoing processes to ensure the model and application remain accurate and effective.
@@ -65,39 +62,3 @@ Ongoing processes to ensure the model and application remain accurate and effect
 - **Model Updates**: Regularly retrain the model with new data to enhance accuracy.
 - **User Feedback**: Collect and analyze user feedback to improve the app's functionality and user experience.
 - **Bug Fixes and Enhancements**: Address any issues promptly and implement new features as needed.
-
-## Implementation Plan
-
-### Phase 1: Planning and Research
-- Define problem statement and gather requirements.
-- Conduct research on tomato diseases and existing solutions.
-- Select tools and technologies for model development and deployment.
-
-### Phase 2: Dataset Preparation
-- Collect and annotate images of tomato plants.
-- Split the dataset into training, validation, and test sets.
-- Perform data augmentation to increase dataset diversity.
-
-### Phase 3: Model Development
-- Set up the Custom Vision project.
-- Upload and train the model using the prepared dataset.
-- Evaluate and refine the model for optimal performance.
-
-### Phase 4: Application Development
-- Develop the frontend interface for the web app or Power App.
-- Integrate the Custom Vision model with the application backend.
-- Ensure seamless user interaction and real-time disease diagnosis.
-
-### Phase 5: Deployment and Testing
-- Deploy the application on the chosen platform.
-- Conduct thorough testing to ensure functionality and accuracy.
-- Collect user feedback and make necessary adjustments.
-
-### Phase 6: Maintenance and Updates
-- Monitor the application for performance and accuracy.
-- Regularly update the model with new data.
-- Implement user feedback and enhance the application over time.
-
-## Conclusion
-
-The Tomato Disease Classifier App is a comprehensive solution designed to address the critical need for accurate and timely disease detection in tomato crops. By leveraging advanced machine learning techniques and user-friendly application interfaces, this solution aims to empower farmers with the tools they need to manage and mitigate the impact of tomato diseases effectively.
