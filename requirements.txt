@@ -1,4 +1,4 @@
-Flask==2.0.2
-requests==2.26.0
-Pillow==8.4.0
+Flask==3.0.3
+requests
+Pillow==10.3.0
 
