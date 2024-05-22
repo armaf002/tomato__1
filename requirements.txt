@@ -1,4 +1,4 @@
-Flask==3.0.3
-requests==2.31.0
-Pillow==10.3.0
-
+Flask
+requests
+python-dotenv
+Pillow
