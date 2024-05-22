@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - tomatodiseaseclassifier
+name: Build and deploy Python app to Azure Web App - TomatoDiseaseClassifier
 
 on:
   push:
@@ -20,7 +20,7 @@ jobs:
       - name: Set up Python version
         uses: actions/setup-python@v1
         with:
-          python-version: '3.12'
+          python-version: '3.10'
 
       - name: Create and start virtual environment
         run: |
@@ -65,14 +65,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_73ABB2B4C9274449861C73F8647D5545 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_CBA8E4498C754875BDE9D8509A4B10C3 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F9DF602B85C040F9B872D23EDE80FA95 }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6BEB68F81FB3426FB342EC21C624A8D4 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_27B69C81795345929A7CED3AD79070A7 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_41DA815BCA7B41848443C344B653EB04 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'tomatodiseaseclassifier'
+          app-name: 'TomatoDiseaseClassifier'
           slot-name: 'Production'
           
