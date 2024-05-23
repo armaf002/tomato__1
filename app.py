@@ -22,12 +22,12 @@ def generate_response(question):
             {'role': 'system', 'content': 'You are an expert in tomato plant diseases. Provide detailed information about the diseases, symptoms, causes, and control measures.'},
             {'role': 'user', 'content': question}
         ],
-        'max_tokens': 300,
         'temperature': 0.7,
     }
     response = requests.post(OPENAI_ENDPOINT, json=data, headers=headers)
     if response.status_code == 200:
-        return response.json().get('choices', [{}])[0].get('message', {}).get('content', 'No response available')
+        raw_response = response.json().get('choices', [{}])[0].get('message', {}).get('content', 'No response available')
+        return raw_response
     else:
         return f'Error occurred: {response.status_code}, {response.text}'
 
