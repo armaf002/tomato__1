@@ -46,7 +46,7 @@
         <div class="result">
             <h2>Generated Response</h2>
             <p>Question: {{ question }}</p>
-            <p>Response: {{ generated_response }}</p>
+            <div>Response: {{ generated_response | safe }}</div>
         </div>
         {% endif %}
         {% with messages = get_flashed_messages(with_categories=true) %}
