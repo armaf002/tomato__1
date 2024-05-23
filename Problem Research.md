@@ -6,7 +6,7 @@ Tomatoes are one of the most widely cultivated crops globally, essential for bot
 
 ## Problem Statement
 
-The primary objective is to develop a Tomato Disease Classifier App using custom vision technology to accurately identify and classify common tomato diseases. This solution aims to assist farmers and agricultural professionals in early disease detection, enabling timely and targeted interventions.
+The primary objective is to develop a Tomato Disease Classifier App using custom vision technology to accurately identify and classify common tomato diseases and azure openai technology to generate response regarding any question about tomato diseases that is been asked. This solution aims to assist farmers and agricultural professionals in early disease detection, enabling timely and targeted interventions.
 
 ## Importance of Early Detection
 
