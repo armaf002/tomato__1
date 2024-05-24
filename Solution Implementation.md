@@ -30,6 +30,18 @@ The following technologies are being used for developing the prototype:
 
 5. **Testing**: The prototype was thoroughly tested to ensure functionality and accuracy. Unit tests were performed to validate different components of the application.
 
+### Model Performance
+
+The performance of the trained computer vision model is summarized below:
+
+- **Precision**: 89.5%
+- **Recall**: 85.3%
+- **Average Precision (AP)**: 93.8%
+
+These metrics indicate a high level of accuracy and reliability in detecting and classifying tomato diseases from the provided images.
+
+![Model Performance](images/model.png)
+
 ### Integration with GitHub and Azure
 
 - The project is linked to a GitHub repository for version control and collaboration.
