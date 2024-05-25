@@ -7,7 +7,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv('FLASK_SECRET_KEY', 'default_secret_key')  # Use a secure secret key for production
+app.secret_key = os.getenv('FLASK_SECRET_KEY', 'default_secret_key')
 
 OPENAI_ENDPOINT = os.getenv('OPENAI_ENDPOINT', 'https://TomatoDiseaseClassifier.openai.azure.com/openai/deployments/gpt-35-turbo-16k/chat/completions?api-version=2023-03-15-preview')
 OPENAI_KEY = os.getenv('OPENAI_KEY', '34fd03f1f03c41cb8ee3fdcf6ccd03f1')
@@ -42,10 +42,6 @@ def predict():
     
     if not file and not url:
         flash('Please upload an image or enter an image URL.', 'error')
-        return redirect(url_for('index'))
-
-    if file and file.filename == '':
-        flash('Please select a valid image file.', 'error')
         return redirect(url_for('index'))
     
     diagnosis = classify_tomato_disease(image_file=file, image_url=url)
