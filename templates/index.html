@@ -16,13 +16,13 @@
             <form action="/predict" method="post" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="file">Upload an image:</label>
-                    <input type="file" id="file" name="file" accept="image/*" required>
+                    <input type="file" id="file" name="file" accept="image/*">
                 </div>
                 <div class="form-group">
                     <label for="url">Or enter an image URL:</label>
                     <input type="url" id="url" name="url" placeholder="https://example.com/image.jpg">
                 </div>
-                <button type="submit">Upload and Predict</button>
+                <button type="submit">Upload or Enter URL and Predict</button>
             </form>
         </section>
         <hr>
