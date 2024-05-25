@@ -1,67 +1,65 @@
-from flask import Flask, request, render_template, flash, redirect, url_for
-from custom_vision import classify_tomato_disease
-import requests
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
-
-app = Flask(__name__)
-app.secret_key = os.getenv('FLASK_SECRET_KEY', 'default_secret_key')
-
-OPENAI_ENDPOINT = os.getenv('OPENAI_ENDPOINT', 'https://TomatoDiseaseClassifier.openai.azure.com/openai/deployments/gpt-35-turbo-16k/chat/completions?api-version=2023-03-15-preview')
-OPENAI_KEY = os.getenv('OPENAI_KEY', '34fd03f1f03c41cb8ee3fdcf6ccd03f1')
-
-def generate_response(question):
-    headers = {
-        'Content-Type': 'application/json',
-        'api-key': OPENAI_KEY
-    }
-    data = {
-        'messages': [
-            {'role': 'system', 'content': 'You are an expert in tomato plant diseases. Provide detailed information about the diseases, symptoms, causes, and control measures.'},
-            {'role': 'user', 'content': question}
-        ],
-        'temperature': 0.7,
-    }
-    response = requests.post(OPENAI_ENDPOINT, json=data, headers=headers)
-    if response.status_code == 200:
-        raw_response = response.json().get('choices', [{}])[0].get('message', {}).get('content', 'No response available')
-        return raw_response
-    else:
-        return f'Error occurred: {response.status_code}, {response.text}'
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/predict', methods=['POST'])
-def predict():
-    file = request.files.get('file')
-    url = request.form.get('url')
-    
-    if not file and not url:
-        flash('Please upload an image or enter an image URL.', 'error')
-        return redirect(url_for('index'))
-    
-    diagnosis = classify_tomato_disease(image_file=file, image_url=url)
-    if not diagnosis:
-        flash('Error occurred while processing the image. Please try again.', 'error')
-        return redirect(url_for('index'))
-    
-    return render_template('index.html', diagnosis=diagnosis)
-
-@app.route('/generate', methods=['POST'])
-def generate():
-    question = request.form.get('question')
-    tomato_disease_keywords = ['tomato', 'disease', 'blight', 'leaf curl', 'septoria leaf spot', 'verticillium wilt']
-    
-    if any(keyword in question.lower() for keyword in tomato_disease_keywords):
-        response = generate_response(question)
-        return render_template('index.html', generated_response=response, question=question)
-    else:
-        flash('Please ask a question related to tomato diseases.', 'error')
-        return redirect(url_for('index'))
-
-if __name__ == '__main__':
-    app.run(debug=True)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomato Disease Classifier</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tomato Disease Classifier</h1>
+        </header>
+        <section class="form-section">
+            <h2>Predict Tomato Disease from Image</h2>
+            <form action="/predict" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file">Upload an image:</label>
+                    <input type="file" id="file" name="file" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="url">Or enter an image URL:</label>
+                    <input type="url" id="url" name="url" placeholder="https://example.com/image.jpg">
+                </div>
+                <button type="submit">Upload or Enter URL and Predict</button>
+            </form>
+        </section>
+        <hr>
+        <section class="form-section">
+            <h2>Ask a Question</h2>
+            <form action="/generate" method="post">
+                <div class="form-group">
+                    <label for="question">Ask a question about tomato diseases:</label>
+                    <input type="text" id="question" name="question" required>
+                </div>
+                <button type="submit">Generate Response</button>
+            </form>
+        </section>
+        {% if diagnosis %}
+        <div class="result">
+            <h2>Diagnosis</h2>
+            <p>{{ diagnosis }}</p>
+        </div>
+        {% endif %}
+        {% if generated_response %}
+        <div class="result">
+            <h2>Generated Response</h2>
+            <p>Question: {{ question }}</p>
+            <div>Response: {{ generated_response | safe }}</div>
+        </div>
+        {% endif %}
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                <div class="flash alert alert-{{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+        {% endwith %}
+    </div>
+</body>
+</html>
